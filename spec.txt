@@ -1,1 +1,72 @@
+PROJECT: mini-diary
+AUTHOR: Ela Nur DOĞAN (251478056)
+VERSION: v0
+DATE: 2026-03-16
+
+==========================================
+OVERVIEW
+==========================================
+
+mini-dairy is a command-line diary manager.
+It stores logs in a plain text file and supports adding, listing and reading logs.
+All data is persisted in a directory called .minidiary/ in the current working directory.
+
+==========================================
+COMMANDS
+==========================================
+
+--init--
+Usage: python minidiary.py init
+Description: Initializes the system by creating an empty diary.txt file.
+Output: "System initialized."
+
+--login--
+Usage: python minidiary.py login <username>
+Description: Validates user access. (Note: To be fully implemented after v0).
+Output: "User <username> logged in."
+
+--add--
+Usage: python minidiary.py add "<title>"
+Description: Appends a new entry with an auto-incremented ID and current timestamp.
+Output: "Added entry #<id>: <title>"
+
+--list--
+Usage: python minidiary.py list
+Description: Lists all entries in a formatted way.
+Output: [id] title (date-time) or "No entries found."
+
+--read--
+Usage: python minidiary.py read <id>
+Description: Shows the specific entry details for the given ID.
+Output: "Reading entry #<id>: <title> (<date-time>)"
+
+--delete--
+Usage: python minidiary.py delete <id>
+Description: Removes the entry with the specified ID from the file.
+Output: "Deleted entry #<id>."
+
+==========================================
+DATA FORMAT
+==========================================
+
+File:.minidiary.dat
+Format: ID | timestamp | tittle
+Example:
+001 | 2026-03-15 13:25:56 | school
+002 | 2026-03-16 17:12:00 | vacation
+
+==========================================
+ERROR HANDLING
+==========================================
+
+Invalid Menu Input: Validate the user’s menu selection and display an error message if the input does not match any available option.
+
+Entry ID Validation: Check whether the entered entry ID exists before reading or deleting it and inform the user if no matching entry is found.
+
+Empty Input Validation: Prevent saving a diary entry if the title or content fields are empty and request the user to enter valid text.
+
+File Not Found Handling: If a diary entry file cannot be found when the program tries to read it, notify the user and safely return to the menu.
+
+Directory Existence Check: If the .minidiary/ storage directory does not exist when the program starts, automatically create it to store diary entry files.
+
 
